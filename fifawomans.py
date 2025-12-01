@@ -271,10 +271,9 @@ with tab_demografia:
     )
 
     if st.button("Actualizar datos desde la API"):
-        # Limpia la caché para forzar una nueva consulta
         build_country_demographics.clear()
         fetch_country_info.clear()
-        st.experimental_rerun()
+        st.rerun()
 
     demo_df = build_country_demographics(filtered)
 
