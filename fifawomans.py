@@ -11,9 +11,9 @@ st.set_page_config(
 )
 
 st.title("Análisis de Datos del Mundial Femenino")
-st.caption("Aplicación desarrollada para la Prueba Solemne N°3 - Taller de Programación II")
+st.caption("Prueba Solemne N°3 - Taller de Programación II")
 st.markdown("*Integrantes:* Aylin Mella · Luis Torres · Franciska Zúñiga")
-
+st.markdown("*Docente:* Marco Alsina")
 
 @st.cache_data
 def load_world_cup_data() -> pd.DataFrame:
