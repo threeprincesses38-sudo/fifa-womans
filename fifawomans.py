@@ -226,7 +226,7 @@ with tab_comparacion:
 
     metric = st.radio(
         "Métrica a comparar",
-        ["Goles", "Asistencias", "goles en 90 min", "asistencias en 90 min"],
+        ["Goles", "Asistencias", "goals_per_90", "assists_per_90"],
         index=0,
         format_func=lambda x: {
             "goals": "Goles totales",
