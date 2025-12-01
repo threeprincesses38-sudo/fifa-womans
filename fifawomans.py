@@ -281,7 +281,7 @@ with tab_demografia:
     st.dataframe(demo_df)
 
     
-    demo_merge = filtered.merge(demo_df, left_on="squad", right_on="country", how="left")
+    demo_merge = filtered.merge(demo_df, on="squad", how="left")
     demo_merge["goals_per_million"] = demo_merge.apply(
         lambda row: (row["goals"] / row["population"] * 1_000_000)
         if pd.notnull(row["population"]) and row["population"] > 0
