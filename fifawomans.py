@@ -270,7 +270,7 @@ with tab_demografia:
         "credenciales ni pagos."
     )
 
-    if st.button("🔄 Actualizar datos desde la API"):
+    if st.button("Actualizar datos desde la API"):
         # Limpia la caché para forzar una nueva consulta
         build_country_demographics.clear()
         fetch_country_info.clear()
