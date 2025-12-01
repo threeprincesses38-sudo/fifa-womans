@@ -232,7 +232,7 @@ with tab_comparacion:
             "goals": "Goles totales",
             "assists": "Asistencias totales",
             "goals_per_90": "Goles por 90 minutos",
-            "assist_per_90": "Asistencias por 90 minutos",
+            "assists_per_90": "Asistencias por 90 minutos",
         }[x],
     )
 
