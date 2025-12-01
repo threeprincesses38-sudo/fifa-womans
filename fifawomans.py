@@ -77,8 +77,7 @@ if "team" in fifa.columns:
             st.pyplot(fig2)
 
 with tab2:
-        st.header("⚽ Análisis de Rendimiento")
-
+        st.header(" Análisis de Rendimiento")
         if "goals_scored" in fifa.columns:
             prom = fifa.groupby("team")["goals_scored"].mean()
 
@@ -91,7 +90,6 @@ with tab2:
 
 if "possession" in fifa.columns:
             st.subheader("Relación entre posesión y goles")
-
             fig4, ax4 = plt.subplots()
             ax4.scatter(fifa["possession"], fifa["goals_scored"], color="red")
             ax4.set_xlabel("Posesión (%)")
@@ -101,7 +99,6 @@ if "possession" in fifa.columns:
 
 with tab3:
         st.header("Comparación con datos de países (API REST)")
-
         por región (boxplot)
         st.subheader("Distribución de población por región")
 
