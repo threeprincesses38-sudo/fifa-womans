@@ -1,10 +1,11 @@
+# Importar librerias (streamlit, pandas, numpy, matplotlib, requests, IO)
 import streamlit as st
 import pandas as pd 
 import numpy as np
 import matplotlib.pyplot as plt
 import requests
 from io import StringIO
-
+#Configuración y ajustes visuales de la pagina
 st.set_page_config(
     page_title="Mundial Femenino - Análisis de Datos",
     layout="wide",
@@ -14,16 +15,16 @@ st.title("Análisis de Datos del Mundial Femenino")
 st.caption("Prueba Solemne N°3 - Taller de Programación II")
 st.markdown("*Integrantes:* Aylin Mella · Luis Torres · Franciska Zúñiga")
 st.markdown("*Docente:* Marco Alsina")
-
+#declaración de función
 @st.cache_data
 def load_world_cup_data() -> pd.DataFrame:
-    # El archivo womens-world-cup.csv debe estar en la raíz del repositorio.
+    # Lectura del archivo womens-world-cup.csv que está en la raíz del repositorio.
     df = pd.read_csv("womens-world-cup.csv")
     return df
 
 df = load_world_cup_data()
 
-
+#Nombre de la barra lateral para filtrar datos
 st.sidebar.header("Filtros generales")
 
 years = sorted(df["year"].unique())
@@ -43,7 +44,7 @@ selected_teams = st.sidebar.multiselect(
 
 show_raw_data = st.sidebar.checkbox("Mostrar tabla de datos filtrados")
 
-# Aplicar filtros
+# Aplicar filtros de años y partidos jugados
 filtered = df[df["year"] == selected_year].copy()
 filtered = filtered[filtered["matches_played"] >= min_matches]
 
@@ -58,7 +59,7 @@ COUNTRY_NAME_MAP = {
     "Korea DPR": "North Korea",
     "Korea Rep": "South Korea",
 }
-
+#Consultas y respuesta de la base de datos en la API publica
 @st.cache_data
 def fetch_country_info(country_name: str):
     """
@@ -93,7 +94,7 @@ def fetch_country_info(country_name: str):
         "subregion": country.get("subregion", None),
         "capital": (country.get("capital") or ["Desconocida"])[0],
     }
-
+#Construcción de tablas en el dataframe
 @st.cache_data
 def build_country_demographics(df_year: pd.DataFrame) -> pd.DataFrame:
     """
@@ -139,7 +140,7 @@ tab_general, tab_comparacion, tab_demografia, tab_descarga = st.tabs(
     ]
 )
 
-
+#Datos a estudiar 
 with tab_general:
     st.subheader(f"Resumen general - Mundial {selected_year}")
 
@@ -162,7 +163,7 @@ with tab_general:
         goals_by_team = (
             filtered.groupby("squad")["goals"].sum().sort_values(ascending=False)
         )
-
+# creación del gráfico
         fig1, ax1 = plt.subplots()
         goals_by_team.plot(kind="bar", ax=ax1)
         ax1.set_xlabel("Equipo")
@@ -178,7 +179,7 @@ with tab_general:
 
 
         st.markdown("### Relación entre posesión del balón y goles")
-
+# creacion de grafico de puntos
         fig2, ax2 = plt.subplots()
         ax2.scatter(filtered["possesion"], filtered["goals"])
         for _, row in filtered.iterrows():
@@ -259,7 +260,7 @@ with tab_comparacion:
             "las selecciones según la métrica elegida."
         )
 
-
+#Parte para actualizar los datos de la api y posibles situaciones.
 with tab_demografia:
     st.subheader("Integración con API REST: RestCountries")
 
@@ -300,7 +301,7 @@ with tab_demografia:
         )
     else:
         st.markdown("### Goles por millón de habitantes (API + dataset)")
-
+#creación grafico de barras
         fig5, ax5 = plt.subplots()
         ax5.bar(valid["squad"], valid["goals_per_million"])
         ax5.set_xlabel("Equipo")
@@ -316,7 +317,7 @@ with tab_demografia:
             "información demográfica de la API, permitiendo analizar qué selecciones "
             "tienen un rendimiento goleador alto en relación con el tamaño de su país."
         )
-
+#Pie de pagina y apartado para descargar la información ocupada
 with tab_descarga:
     st.subheader("Datos filtrados y descarga reproducible")
 
