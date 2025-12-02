@@ -2,7 +2,7 @@ FIFA-Womans(Datos de copas del mundo femeninas)
 
  ¿De qué trata este proyecto?
 
-Este proyecto contiene un script en Python llamado fifawomans.py, el cual trabaja con datos relacionados al fútbol femenino (dependiendo de lo que haga tu código).
+Este proyecto contiene un script en Python llamado fifawomans.py, el cual trabaja con datos relacionados al fútbol femenino.
 La idea es tener una herramienta simple para mostrar información, analizar datos o probar cosas relacionadas al tema.
 
 
