@@ -6,7 +6,7 @@ Este proyecto contiene un script en Python llamado fifawomans.py, el cual trabaj
 La idea es tener una herramienta simple para mostrar información, analizar datos o probar cosas relacionadas al tema.
 
 
-🛠️Instalación (paso a paso)
+Instalación (paso a paso)
 
 Para usar este proyecto en tu computador:
 
@@ -28,7 +28,7 @@ Para usar este proyecto en tu computador:
      python fifawomans.py
 
 
-API UTILIZADA👨🏻‍💻
+API UTILIZADA
 
 La aplicación consulta automáticamente información de países usando:
 
@@ -44,7 +44,7 @@ La API entrega:
 
 Y la app combina esos datos con métricas futbolísticas.
 
-¿Como descargar los datos?⚡️
+¿Como descargar los datos?
 
 En la última pestaña puedes:
 
@@ -52,7 +52,7 @@ En la última pestaña puedes:
 2. Descargar los datos en CSV
 3. Guardar resultados para reproducir el análisis después
 
-Posibles contribuciones🤝🏻
+Posibles contribuciones
 
 Si alguna persona desea mejorar o modificar el proyecto:
 	1.	Realiza un fork
@@ -60,7 +60,7 @@ Si alguna persona desea mejorar o modificar el proyecto:
 	3.	Haz tus cambios
 	4.	Envía un pull request
 
-Licencias💾
+Licencias
 
 Este proyecto usa licencia MIT, por lo que puedes copiarlo, modificarlo y usarlo sin problemas.
 
